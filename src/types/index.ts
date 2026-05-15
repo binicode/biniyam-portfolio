@@ -25,3 +25,13 @@ export interface SkillGroup {
   category: string;
   skills: string[];
 }
+
+export interface Project {
+  number: string;
+  title: string;
+  description: string;
+  stack: string[];
+  liveUrl: string;
+  githubUrl: string;
+  status: string;
+}

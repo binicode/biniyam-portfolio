@@ -47,3 +47,56 @@ export const skillsData = [
     skills: ["OpenAI API", "ethers.js", "Solidity"],
   },
 ];
+
+export const projectsData = [
+  {
+    number: "01",
+    title: "SaaS Dashboard",
+    description:
+      "A multi-user productivity platform built end to end. Features authentication, real-time updates, and a clean dashboard interface for managing tasks and teams.",
+    stack: ["Next.js", "TypeScript", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    liveUrl: "#",
+    githubUrl: "#",
+    status: "In Progress",
+  },
+  {
+    number: "02",
+    title: "AI-Powered App",
+    description:
+      "A smart document summarizer and writing assistant powered by the OpenAI API. Supports multi-format input and delivers clean, structured output.",
+    stack: ["Next.js", "TypeScript", "OpenAI API", "Node.js"],
+    liveUrl: "#",
+    githubUrl: "#",
+    status: "In Progress",
+  },
+  {
+    number: "03",
+    title: "Web3 DApp",
+    description:
+      "A decentralized application with wallet connection, on-chain interactions, and a clean modern UI. Built for the Ethereum ecosystem.",
+    stack: ["Next.js", "TypeScript", "ethers.js", "Solidity", "MetaMask"],
+    liveUrl: "#",
+    githubUrl: "#",
+    status: "In Progress",
+  },
+  {
+    number: "04",
+    title: "REST API + DevOps",
+    description:
+      "A production-grade REST API fully Dockerized with a CI/CD pipeline. Demonstrates real-world deployment and maintenance practices.",
+    stack: ["Node.js", "Express.js", "MongoDB", "Docker", "GitHub Actions"],
+    liveUrl: "#",
+    githubUrl: "#",
+    status: "In Progress",
+  },
+  {
+    number: "05",
+    title: "Real-Time App",
+    description:
+      "A real-time collaboration tool with live updates using WebSockets. Built to demonstrate advanced backend architecture and low-latency communication.",
+    stack: ["Next.js", "Node.js", "Socket.io", "MongoDB", "TypeScript"],
+    liveUrl: "#",
+    githubUrl: "#",
+    status: "In Progress",
+  },
+];
