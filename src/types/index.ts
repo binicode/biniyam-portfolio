@@ -35,3 +35,10 @@ export interface Project {
   githubUrl: string;
   status: string;
 }
+
+export interface TimelineItem {
+  date: string;
+  title: string;
+  description: string;
+  status: "completed" | "inprogress";
+}

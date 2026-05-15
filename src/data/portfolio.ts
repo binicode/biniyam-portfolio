@@ -100,3 +100,54 @@ export const projectsData = [
     status: "In Progress",
   },
 ];
+
+export const timelineData = [
+  {
+    date: "2014",
+    title: "BSc Civil Engineering",
+    description: "Graduated from Adama Science and Technology University. Built a foundation of systems thinking, precision, and problem solving.",
+    status: "completed",
+  },
+  {
+    date: "2025",
+    title: "Started Self-Teaching Web Development",
+    description: "Made the deliberate switch from civil engineering to software. Started learning HTML, CSS, JavaScript, and React.",
+    status: "completed",
+  },
+  {
+    date: "2026",
+    title: "Meta Front-End Developer Specialization",
+    description: "Completing the Meta Front-End Developer Professional Certificate on Coursera — covering React, JavaScript, and modern frontend practices.",
+    status: "inprogress",
+  },
+  {
+    date: "2026",
+    title: "Node.js & Express Backend Development",
+    description: "Completing the IBM Node.js & Express backend development course on Coursera — building production-grade REST APIs.",
+    status: "inprogress",
+  },
+  {
+    date: "2026",
+    title: "MongoDB & Databases",
+    description: "Learning MongoDB and modern database design patterns for full-stack applications.",
+    status: "inprogress",
+  },
+  {
+    date: "2026",
+    title: "DevOps — Docker, CI/CD, GitHub Actions",
+    description: "Learning containerization, automated pipelines, and production deployment workflows.",
+    status: "inprogress",
+  },
+  {
+    date: "2026",
+    title: "Web3 & Solidity",
+    description: "Learning smart contract development with Solidity and building decentralized applications with ethers.js.",
+    status: "inprogress",
+  },
+  {
+    date: "2026",
+    title: "Portfolio Live — biniyam.com",
+    description: "Launching the complete portfolio showcasing all projects and skills to the world.",
+    status: "inprogress",
+  },
+];
