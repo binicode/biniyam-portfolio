@@ -24,3 +24,26 @@ export const aboutData = {
   ],
   resumeUrl: "/resume.pdf",
 };
+
+export const skillsData = [
+  {
+    category: "Frontend",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML & CSS"],
+  },
+  {
+    category: "Backend",
+    skills: ["Node.js", "Express.js", "REST APIs"],
+  },
+  {
+    category: "Database",
+    skills: ["MongoDB", "PostgreSQL"],
+  },
+  {
+    category: "DevOps",
+    skills: ["Docker", "GitHub Actions", "CI/CD", "Linux"],
+  },
+  {
+    category: "AI & Web3",
+    skills: ["OpenAI API", "ethers.js", "Solidity"],
+  },
+];

@@ -20,3 +20,8 @@ export interface PortfolioData {
   domain: string;
   available: boolean;
 }
+
+export interface SkillGroup {
+  category: string;
+  skills: string[];
+}
