@@ -10,7 +10,7 @@ export default function Hero() {
     return (
         <section
             aria-label="Hero"
-            className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 bg-white"
+            className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 bg-white pt-16"
         >
             <div className="max-w-4xl">
 
