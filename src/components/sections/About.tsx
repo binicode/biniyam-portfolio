@@ -44,10 +44,12 @@ export default function About() {
                         custom={0.1}
                         className="flex justify-center lg:justify-start"
                     >
-                        <div className="w-72 h-72 md:w-80 md:h-80 rounded-2xl bg-gray-100 border border-gray-200 flex flex-col items-center justify-center gap-3">
-                            <div className="w-24 h-24 rounded-full bg-gray-300" />
-                            <div className="w-32 h-3 rounded-full bg-gray-300" />
-                            <div className="w-24 h-3 rounded-full bg-gray-300" />
+                        <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden">
+                            <img
+                                src="/images/profile-picture.webp"
+                                alt="Biniyam Abera"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     </motion.div>
 
