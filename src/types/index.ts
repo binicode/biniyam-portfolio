@@ -42,3 +42,12 @@ export interface TimelineItem {
   description: string;
   status: "completed" | "inprogress";
 }
+
+export interface ContactData {
+  heading: string;
+  subheading: string;
+  intro: string;
+  email: string;
+  github: string;
+  linkedin: string;
+}
