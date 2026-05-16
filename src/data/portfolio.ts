@@ -151,3 +151,13 @@ export const timelineData = [
     status: "inprogress",
   },
 ];
+
+export const contactData = {
+  heading: "Get In Touch",
+  subheading: "What I Work With",
+  intro:
+    "Have a project in mind or want to discuss an opportunity? I am always open to new ideas and collaborations. Send me a message and I will get back to you as soon as possible.",
+  email: "myrita099@gmail.com",
+  github: "https://github.com/binicode",
+  linkedin: "#",
+};
