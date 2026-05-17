@@ -1,9 +1,10 @@
 "use client";
 
+import { useTheme } from "next-themes";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -65,6 +66,8 @@ export default function Navbar() {
         return () => { document.body.style.overflow = ""; };
     }, [isMenuOpen]);
 
+    const { theme, setTheme } = useTheme();
+
     return (
         <header
             className={cn(
@@ -105,6 +108,14 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
+
+                <button
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    aria-label="Toggle theme"
+                    className="p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                >
+                    {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+                </button>
 
                 {/* Desktop CTA */}
                 <div className="hidden md:block">
@@ -164,6 +175,15 @@ export default function Navbar() {
                         >
                             Hire Me
                         </Link>
+
+                        <button
+                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            aria-label="Toggle theme"
+                            className="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400"
+                        >
+                            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                            <span className="text-sm">{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+                        </button>
 
                         {/* Bottom Info */}
                         <div className="mt-auto flex flex-col gap-2">
