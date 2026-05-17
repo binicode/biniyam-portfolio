@@ -11,7 +11,7 @@ export default function Projects() {
         <section
             id="projects"
             aria-label="Projects"
-            className="py-24 px-6 md:px-16 lg:px-32 bg-gray-50"
+            className="py-24 px-6 md:px-16 lg:px-32 bg-stone-100 dark:bg-gray-900"
         >
             <div className="max-w-6xl mx-auto">
 
@@ -24,10 +24,10 @@ export default function Projects() {
                     custom={0}
                     className="mb-16"
                 >
-                    <p className="text-sm font-medium text-blue-600 uppercase tracking-widest mb-2">
+                    <p className="text-sm font-medium text-amber-700 dark:text-cyan-400 uppercase tracking-widest mb-2">
                         What I Build
                     </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                    <h2 className="text-4xl md:text-5xl font-bold text-stone-900 dark:text-slate-50">
                         Projects
                     </h2>
                 </motion.div>
@@ -42,7 +42,7 @@ export default function Projects() {
                             whileInView="visible"
                             viewport={{ once: true }}
                             custom={index * 0.1}
-                            className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 hover:border-gray-300 transition-colors"
+                            className="bg-white dark:bg-gray-800 rounded-2xl border border-stone-100 dark:border-gray-700 p-8 md:p-10 hover:border-stone-300 dark:hover:border-gray-500 transition-colors"
                         >
                             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
 
@@ -51,22 +51,22 @@ export default function Projects() {
 
                                     {/* Number + Status */}
                                     <div className="flex items-center gap-4">
-                                        <span className="text-sm font-mono text-gray-400">
+                                        <span className="text-sm font-mono text-stone-400 dark:text-gray-500">
                                             {project.number}
                                         </span>
-                                        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-600 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
+                                        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-700 dark:text-cyan-400 bg-amber-50 dark:bg-cyan-950 border border-amber-200 dark:border-cyan-800 px-3 py-1 rounded-full">
                                             <Clock size={12} aria-hidden="true" />
                                             {project.status}
                                         </span>
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="text-2xl font-bold text-gray-900">
+                                    <h3 className="text-2xl font-bold text-stone-900 dark:text-slate-50">
                                         {project.title}
                                     </h3>
 
                                     {/* Description */}
-                                    <p className="text-gray-500 leading-relaxed">
+                                    <p className="text-stone-500 dark:text-gray-400 leading-relaxed">
                                         {project.description}
                                     </p>
 
@@ -75,7 +75,7 @@ export default function Projects() {
                                         {project.stack.map((tech: string) => (
                                             <span
                                                 key={tech}
-                                                className="px-3 py-1 bg-gray-50 border border-gray-200 text-gray-600 text-xs font-medium rounded-full"
+                                                className="px-3 py-1 bg-stone-50 dark:bg-gray-900 border border-stone-200 dark:border-gray-700 text-stone-600 dark:text-gray-400 text-xs font-medium rounded-full"
                                             >
                                                 {tech}
                                             </span>
@@ -90,7 +90,7 @@ export default function Projects() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={`View ${project.title} source code on GitHub`}
-                                        className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                                        className="inline-flex items-center gap-2 text-sm text-stone-500 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
                                     >
                                         <Code2 size={16} aria-hidden="true" />
                                         <span>Source</span>
@@ -100,7 +100,7 @@ export default function Projects() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={`View ${project.title} live demo`}
-                                        className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                                        className="inline-flex items-center gap-2 text-sm text-stone-500 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
                                     >
                                         <ExternalLink size={16} aria-hidden="true" />
                                         <span>Live Demo</span>
