@@ -1,29 +1,43 @@
-import Link from "next/link";
+"use client";
 
 export default function Footer() {
     return (
-        <footer className="py-8 px-6 md:px-16 lg:px-32 bg-white border-t border-gray-100">
+        <footer className="py-8 px-6 md:px-16 lg:px-32 bg-stone-50 dark:bg-gray-950 border-t border-stone-200 dark:border-gray-800">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
 
                 {/* Logo */}
-                <Link
-                    href="#"
-                    aria-label="Go to top"
-                    className="text-lg font-bold text-gray-900 tracking-tight"
+                <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                    className="text-lg font-bold text-stone-900 dark:text-slate-50 tracking-tight cursor-pointer"
                 >
                     Biniyam.
-                </Link>
+                </button>
 
                 {/* Copyright */}
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-stone-400 dark:text-gray-500">
                     © {new Date().getFullYear()} Biniyam Abera. All rights reserved.
                 </p>
 
                 {/* Links */}
                 <div className="flex items-center gap-6">
-                    <Link href="#about" className="text-sm text-gray-400 hover:text-gray-900 transition-colors">About</Link>
-                    <Link href="#projects" className="text-sm text-gray-400 hover:text-gray-900 transition-colors">Projects</Link>
-                    <Link href="#contact" className="text-sm text-gray-400 hover:text-gray-900 transition-colors">Contact</Link>
+                    <button
+                        onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+                        className="text-sm text-stone-400 dark:text-gray-500 hover:text-stone-900 dark:hover:text-white transition-colors cursor-pointer"
+                    >
+                        About
+                    </button>
+                    <button
+                        onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+                        className="text-sm text-stone-400 dark:text-gray-500 hover:text-stone-900 dark:hover:text-white transition-colors cursor-pointer"
+                    >
+                        Projects
+                    </button>
+                    <button
+                        onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                        className="text-sm text-stone-400 dark:text-gray-500 hover:text-stone-900 dark:hover:text-white transition-colors cursor-pointer"
+                    >
+                        Contact
+                    </button>
                 </div>
 
             </div>
