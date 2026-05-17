@@ -31,25 +31,25 @@ export default function Navbar() {
 
     // Detect active section
     useEffect(() => {
-        const sections = navLinks.map((link) => link.href.replace("#", ""));
-        const observers: IntersectionObserver[] = [];
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
 
-        sections.forEach((id) => {
-            const el = document.getElementById(id);
-            if (!el) return;
-
-            const observer = new IntersectionObserver(
-                ([entry]) => {
-                    if (entry.isIntersecting) setActiveSection(id);
-                },
-                { threshold: 0.3 }
-            );
-            observer.observe(el);
-            observers.push(observer);
+        navLinks.forEach((link) => {
+            const el = document.getElementById(link.href.replace("#", ""));
+            if (el) observer.observe(el);
         });
 
-        return () => observers.forEach((o) => o.disconnect());
+        return () => observer.disconnect();
     }, []);
+
 
     // Close menu on resize to desktop
     useEffect(() => {
@@ -62,11 +62,15 @@ export default function Navbar() {
 
     // Prevent body scroll when menu is open
     useEffect(() => {
-        document.body.style.overflow = isMenuOpen ? "hidden" : "";
-        return () => { document.body.style.overflow = ""; };
+        const original = document.body.style.overflow;
+        document.body.style.overflow = isMenuOpen ? "hidden" : original;
+        return () => {
+            document.body.style.overflow = original;
+        };
     }, [isMenuOpen]);
 
-    const { theme, setTheme } = useTheme();
+
+    const { resolvedTheme, setTheme } = useTheme();
 
     return (
         <header
@@ -74,7 +78,7 @@ export default function Navbar() {
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 isScrolled
                     ? "bg-white shadow-sm"
-                    : "bg-white/95 backdrop-blur-sm border-b border-gray-100"
+                    : "bg-white border-b border-gray-100"
             )}
         >
             <nav
@@ -108,14 +112,17 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
-
-                <button
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    aria-label="Toggle theme"
-                    className="p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
-                >
-                    {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-                </button>
+                <div className="hidden md:block">
+                    <button
+                        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                        aria-label="Toggle theme"
+                        style={{ cursor: "pointer" }}
+                        className="w-fit flex items-center gap-2 text-gray-400 hover:text-gray-900 transition-colors"
+                    >
+                        {resolvedTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                        <span className="text-sm">{resolvedTheme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+                    </button>
+                </div>
 
                 {/* Desktop CTA */}
                 <div className="hidden md:block">
@@ -142,11 +149,13 @@ export default function Navbar() {
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div
+                        role="dialog"
+                        aria-modal="true"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="md:hidden fixed inset-0 top-16 bg-white z-40 flex flex-col justify-between px-6 py-10 gap-8"
+                        className="md:hidden fixed inset-0 top-16 bg-white z-50 flex flex-col justify-between px-6 py-10 gap-8"
                     >
                         <ul className="flex flex-col gap-6">
                             {navLinks.map((link) => (
@@ -177,12 +186,12 @@ export default function Navbar() {
                         </Link>
 
                         <button
-                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
                             aria-label="Toggle theme"
-                            className="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400"
+                            className="inline-flex items-center gap-2 w-fit text-gray-400 hover:text-gray-900 transition-colors cursor-pointer"
                         >
-                            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-                            <span className="text-sm">{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+                            {resolvedTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                            <span className="text-sm">{resolvedTheme === "dark" ? "Light Mode" : "Dark Mode"}</span>
                         </button>
 
                         {/* Bottom Info */}
