@@ -64,10 +64,12 @@ export default function Navbar() {
         <header
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                "bg-stone-50 dark:bg-gray-950",
+                mounted && resolvedTheme === "dark" ? "bg-gray-950" : "bg-stone-50",
                 isScrolled
                     ? "shadow-sm"
-                    : "border-b border-stone-200 dark:border-gray-800"
+                    : mounted && resolvedTheme === "dark"
+                        ? "border-b border-gray-800"
+                        : "border-b border-stone-200"
             )}
         >
             <nav
@@ -75,13 +77,13 @@ export default function Navbar() {
                 className="flex items-center justify-between px-6 md:px-16 lg:px-32 h-16"
             >
                 {/* Logo */}
-                <Link
-                    href="#"
+                <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                     aria-label="Go to top"
-                    className="text-lg font-bold tracking-tight text-stone-900 dark:text-slate-50"
+                    className="text-lg font-bold tracking-tight text-stone-900 dark:text-slate-50 cursor-pointer"
                 >
                     Biniyam.
-                </Link>
+                </button>
 
                 {/* Desktop Nav Links */}
                 <ul className="hidden md:flex items-center gap-8">
@@ -92,7 +94,7 @@ export default function Navbar() {
                                 className={cn(
                                     "text-sm font-medium transition-colors",
                                     activeSection === link.href.replace("#", "")
-                                        ? "text-stone-900 dark:text-white"
+                                        ? "text-amber-700 dark:text-cyan-400"
                                         : "text-stone-500 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white"
                                 )}
                             >
@@ -113,12 +115,15 @@ export default function Navbar() {
                             {resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
                         </button>
                     )}
-                    <Link
-                        href="#contact"
-                        className="bg-stone-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium px-5 py-2 rounded-full hover:bg-stone-700 dark:hover:bg-gray-100 transition-colors"
+                    <button
+                        onClick={() => {
+                            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                            setIsMenuOpen(false);
+                        }}
+                        className="bg-stone-900 dark:bg-cyan-500 text-white dark:text-gray-950 text-sm font-medium px-5 py-2 rounded-full hover:bg-stone-700 dark:hover:bg-cyan-400 transition-colors cursor-pointer"
                     >
                         Hire Me
-                    </Link>
+                    </button>
                 </div>
 
                 {/* Mobile Hamburger */}
@@ -153,7 +158,7 @@ export default function Navbar() {
                                         className={cn(
                                             "text-2xl font-semibold transition-colors",
                                             activeSection === link.href.replace("#", "")
-                                                ? "text-stone-900 dark:text-white"
+                                                ? "text-amber-700 dark:text-cyan-400"
                                                 : "text-stone-400 dark:text-gray-500 hover:text-stone-900 dark:hover:text-white"
                                         )}
                                     >
@@ -164,13 +169,15 @@ export default function Navbar() {
                         </ul>
 
                         <div className="flex flex-col gap-4">
-                            <Link
-                                href="#contact"
-                                onClick={() => setIsMenuOpen(false)}
-                                className="inline-flex items-center justify-center bg-stone-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium px-8 py-4 rounded-full hover:bg-stone-700 dark:hover:bg-gray-100 transition-colors"
+                            <button
+                                onClick={() => {
+                                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                                    setIsMenuOpen(false);
+                                }}
+                                className="inline-flex items-center justify-center bg-stone-900 dark:bg-cyan-500 text-white dark:text-gray-950 text-sm font-medium px-8 py-4 rounded-full hover:bg-stone-700 dark:hover:bg-cyan-400 transition-colors cursor-pointer"
                             >
                                 Hire Me
-                            </Link>
+                            </button>
                             {mounted && (
                                 <button
                                     onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
