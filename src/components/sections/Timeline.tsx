@@ -4,14 +4,13 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Circle } from "lucide-react";
 import { timelineData } from "@/data/portfolio";
 import { fadeUpVariant } from "@/lib/animations";
-import { TimelineItem } from "@/types";
 
 export default function Timeline() {
     return (
         <section
             id="timeline"
             aria-label="Journey"
-            className="py-24 px-6 md:px-16 lg:px-32 bg-white"
+            className="py-24 px-6 md:px-16 lg:px-32 bg-stone-50 dark:bg-gray-950"
         >
             <div className="max-w-4xl mx-auto">
 
@@ -24,10 +23,10 @@ export default function Timeline() {
                     custom={0}
                     className="mb-16"
                 >
-                    <p className="text-sm font-medium text-blue-600 uppercase tracking-widest mb-2">
+                    <p className="text-sm font-medium text-amber-700 dark:text-cyan-400 uppercase tracking-widest mb-2">
                         How I Got Here
                     </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                    <h2 className="text-4xl md:text-5xl font-bold text-stone-900 dark:text-slate-50">
                         Journey
                     </h2>
                 </motion.div>
@@ -36,7 +35,7 @@ export default function Timeline() {
                 <div className="relative flex flex-col gap-0">
 
                     {/* Vertical Line */}
-                    <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gray-200" />
+                    <div className="absolute left-[7px] top-2 bottom-2 w-px bg-stone-200 dark:bg-gray-700" />
 
                     {timelineData.map((item, index) => (
                         <motion.div
@@ -53,13 +52,13 @@ export default function Timeline() {
                                 {item.status === "completed" ? (
                                     <CheckCircle2
                                         size={16}
-                                        className="text-gray-900"
+                                        className="text-stone-900 dark:text-slate-50"
                                         aria-label="Completed"
                                     />
                                 ) : (
                                     <Circle
                                         size={16}
-                                        className="text-blue-400"
+                                        className="text-amber-500 dark:text-cyan-400"
                                         aria-label="In Progress"
                                     />
                                 )}
@@ -67,13 +66,16 @@ export default function Timeline() {
 
                             {/* Content */}
                             <div className="flex flex-col gap-1 pb-2">
-                                <span className="text-xs font-mono text-gray-400">
+                                <span className="text-xs font-mono text-stone-400 dark:text-gray-500">
                                     {item.date}
                                 </span>
-                                <h3 className={`text-lg font-semibold ${item.status === "completed" ? "text-gray-900" : "text-blue-600"}`}>
+                                <h3 className={`text-lg font-semibold ${item.status === "completed"
+                                        ? "text-stone-900 dark:text-slate-50"
+                                        : "text-amber-700 dark:text-cyan-400"
+                                    }`}>
                                     {item.title}
                                 </h3>
-                                <p className="text-gray-500 text-sm leading-relaxed">
+                                <p className="text-stone-500 dark:text-gray-400 text-sm leading-relaxed">
                                     {item.description}
                                 </p>
                             </div>
