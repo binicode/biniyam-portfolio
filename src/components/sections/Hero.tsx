@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, ExternalLink, Code2 } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
@@ -10,7 +9,7 @@ export default function Hero() {
     return (
         <section
             aria-label="Hero"
-            className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 bg-white pt-16"
+            className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 pt-16 bg-stone-50 dark:bg-gray-950"
         >
             <div className="max-w-4xl">
 
@@ -20,11 +19,11 @@ export default function Hero() {
                     initial="hidden"
                     animate="visible"
                     custom={0}
-                    className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium px-4 py-1.5 rounded-full mb-8"
+                    className="inline-flex items-center gap-2 text-sm font-medium px-4 py-1.5 rounded-full mb-8 bg-amber-50 border border-amber-200 text-amber-800 dark:bg-cyan-950 dark:border-cyan-800 dark:text-cyan-400"
                 >
                     <span
                         aria-hidden="true"
-                        className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"
+                        className="w-2 h-2 rounded-full animate-pulse bg-amber-500 dark:bg-cyan-400"
                     />
                     Available for opportunities
                 </motion.div>
@@ -35,7 +34,7 @@ export default function Hero() {
                     initial="hidden"
                     animate="visible"
                     custom={0.1}
-                    className="text-5xl md:text-7xl font-bold text-gray-900 tracking-tight mb-4"
+                    className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-stone-900 dark:text-slate-50"
                 >
                     {portfolioData.name}
                 </motion.h1>
@@ -46,7 +45,7 @@ export default function Hero() {
                     initial="hidden"
                     animate="visible"
                     custom={0.2}
-                    className="text-2xl md:text-3xl font-medium text-blue-600 mb-6"
+                    className="text-2xl md:text-3xl font-medium mb-6 text-amber-700 dark:text-cyan-400"
                 >
                     {portfolioData.title}
                 </motion.h2>
@@ -57,7 +56,7 @@ export default function Hero() {
                     initial="hidden"
                     animate="visible"
                     custom={0.3}
-                    className="text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed mb-10"
+                    className="text-lg md:text-xl max-w-2xl leading-relaxed mb-10 text-stone-500 dark:text-gray-400"
                 >
                     {portfolioData.tagline}
                 </motion.p>
@@ -70,18 +69,18 @@ export default function Hero() {
                     custom={0.4}
                     className="flex flex-wrap gap-4 mb-16"
                 >
-                    <Link
-                        href="#projects"
-                        className="bg-gray-900 text-white px-8 py-3 rounded-full font-medium hover:bg-gray-700 transition-colors"
+                    <button
+                        onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+                        className="px-8 py-3 rounded-full font-medium transition-colors bg-stone-900 dark:bg-white text-white dark:text-gray-900 hover:bg-stone-700 dark:hover:bg-gray-100 cursor-pointer"
                     >
                         View My Work
-                    </Link>
-                    <Link
-                        href="#contact"
-                        className="border border-gray-300 text-gray-700 px-8 py-3 rounded-full font-medium hover:border-gray-900 hover:text-gray-900 transition-colors"
+                    </button>
+                    <button
+                        onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                        className="px-8 py-3 rounded-full font-medium transition-colors border border-stone-300 dark:border-gray-700 text-stone-700 dark:text-gray-300 hover:border-stone-900 dark:hover:border-white hover:text-stone-900 dark:hover:text-white cursor-pointer"
                     >
                         Contact Me
-                    </Link>
+                    </button>
                 </motion.div>
 
                 {/* Social Links */}
@@ -97,7 +96,7 @@ export default function Hero() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Visit Biniyam's GitHub profile"
-                        className="flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors"
+                        className="flex items-center gap-2 text-stone-500 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
                     >
                         <Code2 size={20} aria-hidden="true" />
                         <span className="text-sm">GitHub</span>
@@ -105,7 +104,7 @@ export default function Hero() {
 
                     <a href={`mailto:${portfolioData.email}`}
                         aria-label="Send Biniyam an email"
-                        className="flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors"
+                        className="flex items-center gap-2 text-stone-500 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
                     >
                         <Mail size={20} aria-hidden="true" />
                         <span className="text-sm">Email</span>
@@ -115,7 +114,7 @@ export default function Hero() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Visit Biniyam's website"
-                        className="flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors"
+                        className="flex items-center gap-2 text-stone-500 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
                     >
                         <ExternalLink size={20} aria-hidden="true" />
                         <span className="text-sm">biniyam.com</span>
