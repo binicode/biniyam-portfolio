@@ -10,7 +10,7 @@ export default function Skills() {
     <section
       id="skills"
       aria-label="Skills"
-      className="py-24 px-6 md:px-16 lg:px-32 bg-white"
+      className="py-24 px-6 md:px-16 lg:px-32 bg-stone-50 dark:bg-gray-950"
     >
       <div className="max-w-6xl mx-auto">
 
@@ -23,10 +23,10 @@ export default function Skills() {
           custom={0}
           className="mb-16"
         >
-          <p className="text-sm font-medium text-blue-600 uppercase tracking-widest mb-2">
+          <p className="text-sm font-medium text-amber-700 dark:text-cyan-400 uppercase tracking-widest mb-2">
             What I Work With
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 dark:text-slate-50">
             Skills
           </h2>
         </motion.div>
@@ -45,7 +45,7 @@ export default function Skills() {
             >
               {/* Category Label */}
               <div className="w-32 shrink-0">
-                <span className="text-sm font-semibold text-gray-400 uppercase tracking-widest">
+                <span className="text-sm font-semibold text-stone-400 dark:text-gray-500 uppercase tracking-widest">
                   {group.category}
                 </span>
               </div>
@@ -55,7 +55,7 @@ export default function Skills() {
                 {group.skills.map((skill: string) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 bg-gray-50 border border-gray-200 text-gray-700 text-sm font-medium rounded-full hover:border-blue-300 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                    className="px-4 py-2 bg-white dark:bg-gray-900 border border-stone-200 dark:border-gray-700 text-stone-700 dark:text-gray-300 text-sm font-medium rounded-full hover:border-amber-400 hover:text-amber-700 hover:bg-amber-50 dark:hover:border-cyan-700 dark:hover:text-cyan-400 dark:hover:bg-cyan-950 transition-colors"
                   >
                     {skill}
                   </span>
