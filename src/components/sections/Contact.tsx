@@ -33,7 +33,6 @@ export default function Contact() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus("loading");
-
         try {
             await emailjs.send(
                 process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -54,9 +53,13 @@ export default function Contact() {
     };
 
     const inputClass = cn(
-        "w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50",
-        "text-gray-900 text-sm placeholder:text-gray-400",
-        "focus:outline-none focus:border-blue-400 focus:bg-white",
+        "w-full px-4 py-3 rounded-xl border",
+        "border-stone-200 dark:border-gray-700",
+        "bg-stone-50 dark:bg-gray-900",
+        "text-stone-900 dark:text-slate-50",
+        "text-sm placeholder:text-stone-400 dark:placeholder:text-gray-500",
+        "focus:outline-none focus:border-amber-400 dark:focus:border-cyan-500",
+        "focus:bg-white dark:focus:bg-gray-800",
         "transition-colors"
     );
 
@@ -64,7 +67,7 @@ export default function Contact() {
         <section
             id="contact"
             aria-label="Contact"
-            className="py-24 px-6 md:px-16 lg:px-32 bg-gray-50"
+            className="py-24 px-6 md:px-16 lg:px-32 bg-stone-100 dark:bg-gray-900"
         >
             <div className="max-w-6xl mx-auto">
 
@@ -77,10 +80,10 @@ export default function Contact() {
                     custom={0}
                     className="mb-16"
                 >
-                    <p className="text-sm font-medium text-blue-600 uppercase tracking-widest mb-2">
+                    <p className="text-sm font-medium text-amber-700 dark:text-cyan-400 uppercase tracking-widest mb-2">
                         Let's Work Together
                     </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                    <h2 className="text-4xl md:text-5xl font-bold text-stone-900 dark:text-slate-50">
                         {contactData.heading}
                     </h2>
                 </motion.div>
@@ -103,7 +106,7 @@ export default function Contact() {
                             <div>
                                 <label
                                     htmlFor="name"
-                                    className="block text-sm font-medium text-gray-700 mb-1.5"
+                                    className="block text-sm font-medium text-stone-700 dark:text-gray-300 mb-1.5"
                                 >
                                     Name
                                 </label>
@@ -122,7 +125,7 @@ export default function Contact() {
                             <div>
                                 <label
                                     htmlFor="email"
-                                    className="block text-sm font-medium text-gray-700 mb-1.5"
+                                    className="block text-sm font-medium text-stone-700 dark:text-gray-300 mb-1.5"
                                 >
                                     Email
                                 </label>
@@ -141,7 +144,7 @@ export default function Contact() {
                             <div>
                                 <label
                                     htmlFor="message"
-                                    className="block text-sm font-medium text-gray-700 mb-1.5"
+                                    className="block text-sm font-medium text-stone-700 dark:text-gray-300 mb-1.5"
                                 >
                                     Message
                                 </label>
@@ -164,9 +167,10 @@ export default function Contact() {
                                 aria-label="Send message"
                                 className={cn(
                                     "inline-flex items-center justify-center gap-2",
-                                    "bg-gray-900 text-white px-8 py-3 rounded-full",
-                                    "font-medium text-sm hover:bg-gray-700 transition-colors",
-                                    "disabled:opacity-60 disabled:cursor-not-allowed"
+                                    "bg-stone-900 dark:bg-cyan-500 text-white dark:text-gray-950",
+                                    "px-8 py-3 rounded-full font-medium text-sm",
+                                    "hover:bg-stone-700 dark:hover:bg-cyan-400 transition-colors",
+                                    "disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                                 )}
                             >
                                 <Send size={16} aria-hidden="true" />
@@ -175,7 +179,7 @@ export default function Contact() {
 
                             {/* Success Message */}
                             {status === "success" && (
-                                <div className="flex items-center gap-2 text-emerald-600 text-sm">
+                                <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-sm">
                                     <CheckCircle2 size={16} aria-hidden="true" />
                                     Message sent successfully. I will get back to you soon.
                                 </div>
@@ -183,7 +187,7 @@ export default function Contact() {
 
                             {/* Error Message */}
                             {status === "error" && (
-                                <div className="flex items-center gap-2 text-red-500 text-sm">
+                                <div className="flex items-center gap-2 text-red-500 dark:text-red-400 text-sm">
                                     <AlertCircle size={16} aria-hidden="true" />
                                     Something went wrong. Please try again or email me directly.
                                 </div>
@@ -200,7 +204,7 @@ export default function Contact() {
                         custom={0.2}
                         className="flex flex-col gap-8"
                     >
-                        <p className="text-gray-500 leading-relaxed text-lg">
+                        <p className="text-stone-500 dark:text-gray-400 leading-relaxed text-lg">
                             {contactData.intro}
                         </p>
 
@@ -208,9 +212,9 @@ export default function Contact() {
 
                             <a href={`mailto:${contactData.email}`}
                                 aria-label="Send an email"
-                                className="inline-flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors"
+                                className="inline-flex items-center gap-3 text-stone-600 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
                             >
-                                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+                                <div className="w-10 h-10 rounded-full bg-stone-100 dark:bg-gray-800 flex items-center justify-center">
                                     <Mail size={18} aria-hidden="true" />
                                 </div>
                                 <span className="text-sm">{contactData.email}</span>
@@ -221,9 +225,9 @@ export default function Contact() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Visit GitHub profile"
-                                className="inline-flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors"
+                                className="inline-flex items-center gap-3 text-stone-600 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
                             >
-                                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+                                <div className="w-10 h-10 rounded-full bg-stone-100 dark:bg-gray-800 flex items-center justify-center">
                                     <Code2 size={18} aria-hidden="true" />
                                 </div>
                                 <span className="text-sm">github.com/binicode</span>
@@ -234,10 +238,10 @@ export default function Contact() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Visit LinkedIn profile"
-                                className="inline-flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors"
+                                className="inline-flex items-center gap-3 text-stone-600 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
                             >
-                                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
-                                    <span className="text-xs font-bold text-gray-500">in</span>
+                                <div className="w-10 h-10 rounded-full bg-stone-100 dark:bg-gray-800 flex items-center justify-center">
+                                    <span className="text-xs font-bold text-stone-500 dark:text-gray-400">in</span>
                                 </div>
                                 <span className="text-sm">LinkedIn — Coming Soon</span>
                             </a>
