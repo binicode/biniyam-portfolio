@@ -1,10 +1,10 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -19,39 +19,33 @@ export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("");
+    const [mounted, setMounted] = useState(false);
+    const { resolvedTheme, setTheme } = useTheme();
 
-    // Detect scroll for navbar background
+    useEffect(() => setMounted(true), []);
+
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
+        const handleScroll = () => setIsScrolled(window.scrollY > 50);
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Detect active section
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
+                    if (entry.isIntersecting) setActiveSection(entry.target.id);
                 });
             },
             { threshold: 0.3 }
         );
-
         navLinks.forEach((link) => {
             const el = document.getElementById(link.href.replace("#", ""));
             if (el) observer.observe(el);
         });
-
         return () => observer.disconnect();
     }, []);
 
-
-    // Close menu on resize to desktop
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth >= 768) setIsMenuOpen(false);
@@ -60,25 +54,20 @@ export default function Navbar() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Prevent body scroll when menu is open
     useEffect(() => {
         const original = document.body.style.overflow;
         document.body.style.overflow = isMenuOpen ? "hidden" : original;
-        return () => {
-            document.body.style.overflow = original;
-        };
+        return () => { document.body.style.overflow = original; };
     }, [isMenuOpen]);
-
-
-    const { resolvedTheme, setTheme } = useTheme();
 
     return (
         <header
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                "bg-stone-50 dark:bg-gray-950",
                 isScrolled
-                    ? "bg-white shadow-sm"
-                    : "bg-white border-b border-gray-100"
+                    ? "shadow-sm"
+                    : "border-b border-stone-200 dark:border-gray-800"
             )}
         >
             <nav
@@ -89,7 +78,7 @@ export default function Navbar() {
                 <Link
                     href="#"
                     aria-label="Go to top"
-                    className="text-lg font-bold text-gray-900 tracking-tight"
+                    className="text-lg font-bold tracking-tight text-stone-900 dark:text-slate-50"
                 >
                     Biniyam.
                 </Link>
@@ -103,8 +92,8 @@ export default function Navbar() {
                                 className={cn(
                                     "text-sm font-medium transition-colors",
                                     activeSection === link.href.replace("#", "")
-                                        ? "text-gray-900"
-                                        : "text-gray-500 hover:text-gray-900"
+                                        ? "text-stone-900 dark:text-white"
+                                        : "text-stone-500 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white"
                                 )}
                             >
                                 {link.label}
@@ -112,23 +101,21 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
-                <div className="hidden md:block">
-                    <button
-                        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-                        aria-label="Toggle theme"
-                        style={{ cursor: "pointer" }}
-                        className="w-fit flex items-center gap-2 text-gray-400 hover:text-gray-900 transition-colors"
-                    >
-                        {resolvedTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-                        <span className="text-sm">{resolvedTheme === "dark" ? "Light Mode" : "Dark Mode"}</span>
-                    </button>
-                </div>
 
-                {/* Desktop CTA */}
-                <div className="hidden md:block">
+                {/* Desktop Right */}
+                <div className="hidden md:flex items-center gap-3">
+                    {mounted && (
+                        <button
+                            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                            aria-label="Toggle theme"
+                            className="w-9 h-9 flex items-center justify-center rounded-full border border-stone-200 dark:border-gray-700 text-stone-600 dark:text-gray-300 hover:bg-stone-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+                        >
+                            {resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                        </button>
+                    )}
                     <Link
                         href="#contact"
-                        className="bg-gray-900 text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-gray-700 transition-colors"
+                        className="bg-stone-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium px-5 py-2 rounded-full hover:bg-stone-700 dark:hover:bg-gray-100 transition-colors"
                     >
                         Hire Me
                     </Link>
@@ -139,7 +126,7 @@ export default function Navbar() {
                     onClick={() => setIsMenuOpen((prev) => !prev)}
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     aria-expanded={isMenuOpen}
-                    className="md:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
+                    className="md:hidden p-2 text-stone-700 dark:text-gray-300 hover:text-stone-900 dark:hover:text-white transition-colors cursor-pointer"
                 >
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -155,7 +142,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="md:hidden fixed inset-0 top-16 bg-white z-50 flex flex-col justify-between px-6 py-10 gap-8"
+                        className="md:hidden fixed inset-0 top-16 z-50 flex flex-col justify-between px-6 py-10 bg-stone-50 dark:bg-gray-950"
                     >
                         <ul className="flex flex-col gap-6">
                             {navLinks.map((link) => (
@@ -166,8 +153,8 @@ export default function Navbar() {
                                         className={cn(
                                             "text-2xl font-semibold transition-colors",
                                             activeSection === link.href.replace("#", "")
-                                                ? "text-gray-900"
-                                                : "text-gray-400 hover:text-gray-900"
+                                                ? "text-stone-900 dark:text-white"
+                                                : "text-stone-400 dark:text-gray-500 hover:text-stone-900 dark:hover:text-white"
                                         )}
                                     >
                                         {link.label}
@@ -176,31 +163,32 @@ export default function Navbar() {
                             ))}
                         </ul>
 
-                        {/* Mobile CTA */}
-                        <Link
-                            href="#contact"
-                            onClick={() => setIsMenuOpen(false)}
-                            className="inline-flex items-center justify-center bg-gray-900 text-white text-sm font-medium px-8 py-4 rounded-full hover:bg-gray-700 transition-colors"
-                        >
-                            Hire Me
-                        </Link>
+                        <div className="flex flex-col gap-4">
+                            <Link
+                                href="#contact"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="inline-flex items-center justify-center bg-stone-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium px-8 py-4 rounded-full hover:bg-stone-700 dark:hover:bg-gray-100 transition-colors"
+                            >
+                                Hire Me
+                            </Link>
+                            {mounted && (
+                                <button
+                                    onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                                    aria-label="Toggle theme"
+                                    className="inline-flex items-center gap-2 w-fit text-stone-400 dark:text-gray-500 hover:text-stone-900 dark:hover:text-white transition-colors cursor-pointer"
+                                >
+                                    {resolvedTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                                    <span className="text-sm">{resolvedTheme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+                                </button>
+                            )}
+                        </div>
 
-                        <button
-                            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-                            aria-label="Toggle theme"
-                            className="inline-flex items-center gap-2 w-fit text-gray-400 hover:text-gray-900 transition-colors cursor-pointer"
-                        >
-                            {resolvedTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-                            <span className="text-sm">{resolvedTheme === "dark" ? "Light Mode" : "Dark Mode"}</span>
-                        </button>
-
-                        {/* Bottom Info */}
-                        <div className="mt-auto flex flex-col gap-2">
-                            <p className="text-sm text-gray-400">Based in Addis Ababa, Ethiopia</p>
-                            <p className="text-sm text-gray-400">Available for remote opportunities</p>
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm text-stone-400 dark:text-gray-500">Based in Addis Ababa, Ethiopia</p>
+                            <p className="text-sm text-stone-400 dark:text-gray-500">Available for remote opportunities</p>
 
                             <a href="mailto:myrita099@gmail.com"
-                                className="text-sm text-gray-900 font-medium hover:text-blue-600 transition-colors"
+                                className="text-sm font-medium text-stone-900 dark:text-white hover:text-amber-700 dark:hover:text-cyan-400 transition-colors"
                             >
                                 myrita099@gmail.com
                             </a>
@@ -208,6 +196,6 @@ export default function Navbar() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </header >
+        </header>
     );
 }
