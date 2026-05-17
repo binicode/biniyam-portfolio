@@ -11,7 +11,7 @@ export default function About() {
         <section
             id="about"
             aria-label="About"
-            className="py-24 px-6 md:px-16 lg:px-32 bg-gray-50"
+            className="py-24 px-6 md:px-16 lg:px-32 bg-stone-100 dark:bg-gray-900"
         >
             <div className="max-w-6xl mx-auto">
 
@@ -24,10 +24,10 @@ export default function About() {
                     custom={0}
                     className="mb-16"
                 >
-                    <p className="text-sm font-medium text-blue-600 uppercase tracking-widest mb-2">
+                    <p className="text-sm font-medium text-amber-700 dark:text-cyan-400 uppercase tracking-widest mb-2">
                         Who I Am
                     </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                    <h2 className="text-4xl md:text-5xl font-bold text-stone-900 dark:text-slate-50">
                         About Me
                     </h2>
                 </motion.div>
@@ -66,14 +66,14 @@ export default function About() {
                         {aboutData.bio.map((paragraph, index) => (
                             <p
                                 key={index}
-                                className="text-gray-600 leading-relaxed text-lg"
+                                className="text-stone-600 dark:text-gray-400 leading-relaxed text-lg"
                             >
                                 {paragraph}
                             </p>
                         ))}
 
                         {/* Location */}
-                        <div className="flex items-center gap-2 text-gray-500">
+                        <div className="flex items-center gap-2 text-stone-500 dark:text-gray-400">
                             <MapPin size={16} aria-hidden="true" />
                             <span className="text-sm">{aboutData.location}</span>
                         </div>
@@ -85,9 +85,10 @@ export default function About() {
                                 download
                                 aria-label="Download Biniyam's resume"
                                 className={cn(
-                                    "inline-flex items-center gap-2 bg-gray-900 text-white",
+                                    "inline-flex items-center gap-2",
+                                    "bg-stone-900 dark:bg-cyan-500 text-white dark:text-gray-950",
                                     "px-6 py-3 rounded-full font-medium text-sm",
-                                    "hover:bg-gray-700 transition-colors"
+                                    "hover:bg-stone-700 dark:hover:bg-cyan-400 transition-colors"
                                 )}
                             >
                                 <Download size={16} aria-hidden="true" />
@@ -109,10 +110,10 @@ export default function About() {
                     {aboutData.traits.map((trait, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+                            className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-stone-100 dark:border-gray-700"
                         >
-                            <p className="font-semibold text-gray-900 mb-1">{trait.label}</p>
-                            <p className="text-sm text-gray-500">{trait.description}</p>
+                            <p className="font-semibold text-stone-900 dark:text-slate-50 mb-1">{trait.label}</p>
+                            <p className="text-sm text-stone-500 dark:text-gray-400">{trait.description}</p>
                         </div>
                     ))}
                 </motion.div>
