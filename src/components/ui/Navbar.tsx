@@ -172,7 +172,7 @@ export default function Navbar() {
                     )}
                     <button
                         onClick={() => scrollTo("contact")}
-                        className="bg-stone-900 dark:bg-cyan-500 text-white dark:text-gray-950 text-sm font-medium px-5 py-2 rounded-full hover:bg-stone-700 dark:hover:bg-cyan-400 transition-colors cursor-pointer"
+                        className="bg-amber-700 dark:bg-cyan-500 text-white dark:text-gray-950 text-sm font-medium px-5 py-2 rounded-full hover:bg-amber-800 dark:hover:bg-cyan-400 transition-colors cursor-pointer"
                     >
                         Hire Me
                     </button>
