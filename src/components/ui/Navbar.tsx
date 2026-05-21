@@ -127,14 +127,16 @@ export default function Navbar() {
                 <button
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                     aria-label="Go to top"
-                    className="flex items-center gap-2 cursor-pointer"
+                    className="flex items-center gap-2 cursor-pointer group"
                 >
-                    <span
-                        aria-label="Available for opportunities"
-                        className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
-                    />
                     <span className="text-lg font-bold tracking-tight text-stone-900 dark:text-slate-50">
                         Biniyam.
+                    </span>
+                    <span className="relative flex items-center" title="Available for opportunities">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 hidden group-hover:block whitespace-nowrap text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 border border-emerald-200 dark:border-emerald-800 px-2 py-1 rounded-full">
+                            Available for opportunities
+                        </span>
                     </span>
                 </button>
 
