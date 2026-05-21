@@ -127,9 +127,15 @@ export default function Navbar() {
                 <button
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                     aria-label="Go to top"
-                    className="text-lg font-bold tracking-tight text-stone-900 dark:text-slate-50 cursor-pointer"
+                    className="flex items-center gap-2 cursor-pointer"
                 >
-                    Biniyam.
+                    <span
+                        aria-label="Available for opportunities"
+                        className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
+                    />
+                    <span className="text-lg font-bold tracking-tight text-stone-900 dark:text-slate-50">
+                        Biniyam.
+                    </span>
                 </button>
 
                 {/* Desktop Nav Links */}
