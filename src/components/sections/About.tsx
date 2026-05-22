@@ -116,7 +116,7 @@ export default function About() {
                                 download
                                 aria-label="Download Biniyam's resume"
                                 className={cn(
-                                    "inline-flex items-center gap-2",
+                                    "inline-flex items-center gap-2 w-fit",
                                     "bg-amber-700 dark:bg-cyan-500 text-white dark:text-gray-950",
                                     "px-6 py-3 rounded-full font-semibold text-sm",
                                     "hover:bg-amber-800 dark:hover:bg-cyan-400 hover:scale-105 transition-all cursor-pointer"
@@ -128,7 +128,7 @@ export default function About() {
                             <button
                                 onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
                                 className={cn(
-                                    "inline-flex items-center gap-2",
+                                    "inline-flex items-center gap-2 w-fit",
                                     "border border-stone-300 dark:border-gray-700 text-stone-600 dark:text-gray-300",
                                     "px-6 py-3 rounded-full font-semibold text-sm",
                                     "hover:border-amber-700 dark:hover:border-cyan-400 hover:text-amber-700 dark:hover:text-cyan-400 transition-all cursor-pointer"
