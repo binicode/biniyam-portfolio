@@ -32,7 +32,7 @@ export default function Skills() {
         </motion.div>
 
         {/* Skill Groups */}
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-8">
           {skillsData.map((group: SkillGroup, groupIndex: number) => (
             <motion.div
               key={group.category}
@@ -45,9 +45,12 @@ export default function Skills() {
             >
               {/* Category Label */}
               <div className="w-32 shrink-0">
-                <span className="text-sm font-semibold text-stone-400 dark:text-gray-500 uppercase tracking-widest">
-                  {group.category}
-                </span>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-px bg-amber-400 dark:bg-cyan-600" />
+                  <span className="text-sm font-semibold text-stone-400 dark:text-gray-500 uppercase tracking-widest">
+                    {group.category}
+                  </span>
+                </div>
               </div>
 
               {/* Skill Pills */}
