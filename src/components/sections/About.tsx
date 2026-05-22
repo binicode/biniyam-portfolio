@@ -141,23 +141,28 @@ export default function About() {
                                 <ArrowRight size={16} aria-hidden="true" />
                             </button>
                         </div>
-
-                        {/* Traits */}
-                        <div className="grid grid-cols-2 gap-3 mt-2">
-                            {aboutData.traits.map((trait, index) => (
-                                <div
-                                    key={index}
-                                    className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-stone-100 dark:border-gray-700 hover:border-amber-200 dark:hover:border-cyan-800 transition-colors"
-                                >
-                                    <p className="font-semibold text-stone-900 dark:text-slate-50 text-sm mb-1">{trait.label}</p>
-                                    <p className="text-xs text-stone-500 dark:text-gray-400 leading-relaxed">{trait.description}</p>
-                                </div>
-                            ))}
-                        </div>
-
                     </motion.div>
                 </div>
 
+                {/* Traits — Full Width */}
+                <motion.div
+                    variants={fadeUpVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={0.3}
+                    className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16"
+                >
+                    {aboutData.traits.map((trait, index) => (
+                        <div
+                            key={index}
+                            className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-stone-100 dark:border-gray-700 hover:border-amber-200 dark:hover:border-cyan-800 transition-colors"
+                        >
+                            <p className="font-semibold text-stone-900 dark:text-slate-50 text-sm mb-1">{trait.label}</p>
+                            <p className="text-xs text-stone-500 dark:text-gray-400 leading-relaxed">{trait.description}</p>
+                        </div>
+                    ))}
+                </motion.div>
             </div>
         </section>
     );
