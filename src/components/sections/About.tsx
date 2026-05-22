@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Download } from "lucide-react";
+import { MapPin, Download, ArrowRight } from "lucide-react";
 import { aboutData } from "@/data/portfolio";
 import { fadeUpVariant } from "@/lib/animations";
 import { cn } from "@/lib/utils";
@@ -33,7 +33,7 @@ export default function About() {
                 </motion.div>
 
                 {/* Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
                     {/* Photo */}
                     <motion.div
@@ -42,14 +42,34 @@ export default function About() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         custom={0.1}
-                        className="flex justify-center lg:justify-start"
+                        className="flex flex-col gap-6"
                     >
-                        <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden">
+                        <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
                             <img
                                 src="/images/profile-picture.webp"
                                 alt="Biniyam Abera"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover object-top"
                             />
+                            {/* Overlay gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent" />
+                            {/* Location badge */}
+                            <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                                <MapPin size={12} className="text-amber-700 dark:text-cyan-400" aria-hidden="true" />
+                                <span className="text-xs font-medium text-stone-700 dark:text-gray-300">{aboutData.location}</span>
+                            </div>
+                        </div>
+
+                        {/* Traits */}
+                        <div className="grid grid-cols-2 gap-3">
+                            {aboutData.traits.map((trait, index) => (
+                                <div
+                                    key={index}
+                                    className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-stone-100 dark:border-gray-700 hover:border-amber-200 dark:hover:border-cyan-800 transition-colors"
+                                >
+                                    <p className="font-semibold text-stone-900 dark:text-slate-50 text-sm mb-1">{trait.label}</p>
+                                    <p className="text-xs text-stone-500 dark:text-gray-400 leading-relaxed">{trait.description}</p>
+                                </div>
+                            ))}
                         </div>
                     </motion.div>
 
@@ -60,7 +80,7 @@ export default function About() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         custom={0.2}
-                        className="flex flex-col gap-6"
+                        className="flex flex-col gap-6 lg:pt-4"
                     >
                         {/* Bio Paragraphs */}
                         {aboutData.bio.map((paragraph, index) => (
@@ -72,51 +92,40 @@ export default function About() {
                             </p>
                         ))}
 
-                        {/* Location */}
-                        <div className="flex items-center gap-2 text-stone-500 dark:text-gray-400">
-                            <MapPin size={16} aria-hidden="true" />
-                            <span className="text-sm">{aboutData.location}</span>
-                        </div>
+                        {/* Divider */}
+                        <div className="w-12 h-px bg-amber-300 dark:bg-cyan-800 my-2" />
 
                         {/* Resume Download */}
-                        <div>
+                        <div className="flex flex-col sm:flex-row gap-4">
 
                             <a href={aboutData.resumeUrl}
                                 download
                                 aria-label="Download Biniyam's resume"
                                 className={cn(
                                     "inline-flex items-center gap-2",
-                                    "bg-stone-900 dark:bg-cyan-500 text-white dark:text-gray-950",
-                                    "px-6 py-3 rounded-full font-medium text-sm",
-                                    "hover:bg-stone-700 dark:hover:bg-cyan-400 transition-colors"
+                                    "bg-amber-700 dark:bg-cyan-500 text-white dark:text-gray-950",
+                                    "px-6 py-3 rounded-full font-semibold text-sm",
+                                    "hover:bg-amber-800 dark:hover:bg-cyan-400 hover:scale-105 transition-all cursor-pointer"
                                 )}
                             >
                                 <Download size={16} aria-hidden="true" />
                                 Download Resume
                             </a>
+                            <button
+                                onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+                                className={cn(
+                                    "inline-flex items-center gap-2",
+                                    "border border-stone-300 dark:border-gray-700 text-stone-600 dark:text-gray-300",
+                                    "px-6 py-3 rounded-full font-semibold text-sm",
+                                    "hover:border-amber-700 dark:hover:border-cyan-400 hover:text-amber-700 dark:hover:text-cyan-400 transition-all cursor-pointer"
+                                )}
+                            >
+                                View Projects
+                                <ArrowRight size={16} aria-hidden="true" />
+                            </button>
                         </div>
                     </motion.div>
                 </div>
-
-                {/* Traits */}
-                <motion.div
-                    variants={fadeUpVariant}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    custom={0.3}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20"
-                >
-                    {aboutData.traits.map((trait, index) => (
-                        <div
-                            key={index}
-                            className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-stone-100 dark:border-gray-700"
-                        >
-                            <p className="font-semibold text-stone-900 dark:text-slate-50 mb-1">{trait.label}</p>
-                            <p className="text-sm text-stone-500 dark:text-gray-400">{trait.description}</p>
-                        </div>
-                    ))}
-                </motion.div>
 
             </div>
         </section>
