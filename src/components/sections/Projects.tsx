@@ -33,7 +33,7 @@ export default function Projects() {
                 </motion.div>
 
                 {/* Project Cards */}
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-6">
                     {projectsData.map((project: Project, index: number) => (
                         <motion.div
                             key={project.number}
@@ -42,7 +42,7 @@ export default function Projects() {
                             whileInView="visible"
                             viewport={{ once: true }}
                             custom={index * 0.1}
-                            className="bg-white dark:bg-gray-800 rounded-2xl border border-stone-100 dark:border-gray-700 p-8 md:p-10 hover:border-stone-300 dark:hover:border-gray-500 transition-colors"
+                            className="group bg-white dark:bg-gray-800 rounded-2xl border border-stone-100 dark:border-gray-700 p-8 md:p-10 hover:border-amber-200 dark:hover:border-cyan-800 hover:shadow-lg dark:hover:shadow-gray-900 transition-all duration-300"
                         >
                             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
 
@@ -51,7 +51,7 @@ export default function Projects() {
 
                                     {/* Number + Status */}
                                     <div className="flex items-center gap-4">
-                                        <span className="text-sm font-mono text-stone-400 dark:text-gray-500">
+                                        <span className="text-4xl font-bold text-stone-100 dark:text-gray-700 group-hover:text-amber-100 dark:group-hover:text-gray-600 transition-colors select-none">
                                             {project.number}
                                         </span>
                                         <span className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-700 dark:text-cyan-400 bg-amber-50 dark:bg-cyan-950 border border-amber-200 dark:border-cyan-800 px-3 py-1 rounded-full">
@@ -61,7 +61,7 @@ export default function Projects() {
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="text-2xl font-bold text-stone-900 dark:text-slate-50">
+                                    <h3 className="text-2xl font-bold text-stone-900 dark:text-slate-50 group-hover:text-amber-700 dark:group-hover:text-cyan-400 transition-colors">
                                         {project.title}
                                     </h3>
 
@@ -84,26 +84,26 @@ export default function Projects() {
                                 </div>
 
                                 {/* Right — Links */}
-                                <div className="flex md:flex-col gap-4 shrink-0">
+                                <div className="flex md:flex-col gap-3 shrink-0">
 
                                     <a href={project.githubUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={`View ${project.title} source code on GitHub`}
-                                        className="inline-flex items-center gap-2 text-sm text-stone-500 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
+                                        className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full border border-stone-200 dark:border-gray-700 text-stone-600 dark:text-gray-300 hover:border-amber-700 dark:hover:border-cyan-400 hover:text-amber-700 dark:hover:text-cyan-400 transition-colors"
                                     >
-                                        <Code2 size={16} aria-hidden="true" />
-                                        <span>Source</span>
+                                        <Code2 size={14} aria-hidden="true" />
+                                        Source
                                     </a>
 
                                     <a href={project.liveUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={`View ${project.title} live demo`}
-                                        className="inline-flex items-center gap-2 text-sm text-stone-500 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
+                                        className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full bg-amber-700 dark:bg-cyan-500 text-white dark:text-gray-950 hover:bg-amber-800 dark:hover:bg-cyan-400 transition-colors"
                                     >
-                                        <ExternalLink size={16} aria-hidden="true" />
-                                        <span>Live Demo</span>
+                                        <ExternalLink size={14} aria-hidden="true" />
+                                        Live Demo
                                     </a>
                                 </div>
 
