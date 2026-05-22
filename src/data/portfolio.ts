@@ -11,9 +11,9 @@ export const portfolioData = {
 
 export const aboutData = {
   bio: [
-    "I am a self-taught full-stack developer with a BSc in Civil Engineering — a background that shaped how I think: systematically, precisely, and always with the end structure in mind.",
-    "The switch to software wasn't accidental. It was the realization that code is the most powerful engineering tool of this century — and I wanted to master it.",
-    "Today I build modern, production-grade web applications using React, Next.js, Node.js, and TypeScript — with a growing focus on AI integration and Web3. I work with the same discipline I brought to engineering: detail-oriented, self-driven, and committed to shipping things that actually work.",
+    "Self-taught full-stack developer with a BSc in Civil Engineering — a background that shaped how I think: systematically, precisely, and always with the end structure in mind.",
+    "The switch to software was deliberate. Code is the most powerful engineering tool of this century — and I wanted to master it.",
+    "Today I build modern, production-grade web products with a growing focus on AI and Web3. Same discipline I brought to engineering: detail-oriented, self-driven, shipping things that work.",
   ],
   location: "Addis Ababa, Ethiopia",
   traits: [
