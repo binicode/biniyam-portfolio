@@ -164,7 +164,7 @@ export default function Contact() {
                                 disabled={status === "loading"}
                                 aria-label="Send message"
                                 className={cn(
-                                    "inline-flex items-center justify-center gap-2",
+                                    "inline-flex items-center gap-2 w-fit",
                                     "bg-amber-700 dark:bg-cyan-500 text-white dark:text-gray-950",
                                     "px-8 py-3.5 rounded-full font-semibold text-sm",
                                     "hover:bg-amber-800 dark:hover:bg-cyan-400 hover:scale-105 transition-all",
