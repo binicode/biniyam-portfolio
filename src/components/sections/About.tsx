@@ -109,9 +109,6 @@ export default function About() {
                             )}
                         </button>
 
-                        {/* Divider */}
-                        <div className="w-12 h-px bg-amber-300 dark:bg-cyan-800" />
-
                         {/* Resume + Projects buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
 
