@@ -53,13 +53,12 @@ export default function Contact() {
     };
 
     const inputClass = cn(
-        "w-full px-4 py-3 rounded-xl border",
+        "w-full px-4 py-3.5 rounded-xl border",
         "border-stone-200 dark:border-gray-700",
-        "bg-stone-50 dark:bg-gray-900",
+        "bg-white dark:bg-gray-900",
         "text-stone-900 dark:text-slate-50",
         "text-sm placeholder:text-stone-400 dark:placeholder:text-gray-500",
         "focus:outline-none focus:border-amber-400 dark:focus:border-cyan-500",
-        "focus:bg-white dark:focus:bg-gray-800",
         "transition-colors"
     );
 
@@ -101,12 +100,12 @@ export default function Contact() {
                         <form
                             onSubmit={handleSubmit}
                             noValidate
-                            className="flex flex-col gap-4"
+                            className="flex flex-col gap-5"
                         >
                             <div>
                                 <label
                                     htmlFor="name"
-                                    className="block text-sm font-medium text-stone-700 dark:text-gray-300 mb-1.5"
+                                    className="block text-sm font-semibold text-stone-700 dark:text-gray-300 mb-2"
                                 >
                                     Name
                                 </label>
@@ -125,7 +124,7 @@ export default function Contact() {
                             <div>
                                 <label
                                     htmlFor="email"
-                                    className="block text-sm font-medium text-stone-700 dark:text-gray-300 mb-1.5"
+                                    className="block text-sm font-semibold text-stone-700 dark:text-gray-300 mb-2"
                                 >
                                     Email
                                 </label>
@@ -144,7 +143,7 @@ export default function Contact() {
                             <div>
                                 <label
                                     htmlFor="message"
-                                    className="block text-sm font-medium text-stone-700 dark:text-gray-300 mb-1.5"
+                                    className="block text-sm font-semibold text-stone-700 dark:text-gray-300 mb-2"
                                 >
                                     Message
                                 </label>
@@ -160,34 +159,31 @@ export default function Contact() {
                                 />
                             </div>
 
-                            {/* Submit Button */}
                             <button
                                 type="submit"
                                 disabled={status === "loading"}
                                 aria-label="Send message"
                                 className={cn(
                                     "inline-flex items-center justify-center gap-2",
-                                    "bg-stone-900 dark:bg-cyan-500 text-white dark:text-gray-950",
-                                    "px-8 py-3 rounded-full font-medium text-sm",
-                                    "hover:bg-stone-700 dark:hover:bg-cyan-400 transition-colors",
-                                    "disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                                    "bg-amber-700 dark:bg-cyan-500 text-white dark:text-gray-950",
+                                    "px-8 py-3.5 rounded-full font-semibold text-sm",
+                                    "hover:bg-amber-800 dark:hover:bg-cyan-400 hover:scale-105 transition-all",
+                                    "disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 cursor-pointer"
                                 )}
                             >
                                 <Send size={16} aria-hidden="true" />
                                 {status === "loading" ? "Sending..." : "Send Message"}
                             </button>
 
-                            {/* Success Message */}
                             {status === "success" && (
-                                <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-sm">
+                                <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-sm font-medium">
                                     <CheckCircle2 size={16} aria-hidden="true" />
                                     Message sent successfully. I will get back to you soon.
                                 </div>
                             )}
 
-                            {/* Error Message */}
                             {status === "error" && (
-                                <div className="flex items-center gap-2 text-red-500 dark:text-red-400 text-sm">
+                                <div className="flex items-center gap-2 text-red-500 dark:text-red-400 text-sm font-medium">
                                     <AlertCircle size={16} aria-hidden="true" />
                                     Something went wrong. Please try again or email me directly.
                                 </div>
@@ -202,22 +198,25 @@ export default function Contact() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         custom={0.2}
-                        className="flex flex-col gap-8"
+                        className="flex flex-col gap-10 lg:pt-2"
                     >
                         <p className="text-stone-500 dark:text-gray-400 leading-relaxed text-lg">
-                            {contactData.intro}
+                            Have a project in mind or want to discuss an opportunity? Send me a message and I will get back to you as soon as possible.
                         </p>
 
                         <div className="flex flex-col gap-4">
 
                             <a href={`mailto:${contactData.email}`}
                                 aria-label="Send an email"
-                                className="inline-flex items-center gap-3 text-stone-600 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
+                                className="group flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-stone-100 dark:border-gray-700 hover:border-amber-200 dark:hover:border-cyan-800 transition-all"
                             >
-                                <div className="w-10 h-10 rounded-full bg-stone-100 dark:bg-gray-800 flex items-center justify-center">
-                                    <Mail size={18} aria-hidden="true" />
+                                <div className="w-10 h-10 rounded-full bg-amber-50 dark:bg-cyan-950 flex items-center justify-center shrink-0">
+                                    <Mail size={18} className="text-amber-700 dark:text-cyan-400" aria-hidden="true" />
                                 </div>
-                                <span className="text-sm">{contactData.email}</span>
+                                <div>
+                                    <p className="text-xs text-stone-400 dark:text-gray-500 mb-0.5">Email</p>
+                                    <p className="text-sm font-medium text-stone-700 dark:text-gray-300 group-hover:text-amber-700 dark:group-hover:text-cyan-400 transition-colors">{contactData.email}</p>
+                                </div>
                             </a>
 
 
@@ -225,26 +224,26 @@ export default function Contact() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Visit GitHub profile"
-                                className="inline-flex items-center gap-3 text-stone-600 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
+                                className="group flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-stone-100 dark:border-gray-700 hover:border-amber-200 dark:hover:border-cyan-800 transition-all"
                             >
-                                <div className="w-10 h-10 rounded-full bg-stone-100 dark:bg-gray-800 flex items-center justify-center">
-                                    <Code2 size={18} aria-hidden="true" />
+                                <div className="w-10 h-10 rounded-full bg-amber-50 dark:bg-cyan-950 flex items-center justify-center shrink-0">
+                                    <Code2 size={18} className="text-amber-700 dark:text-cyan-400" aria-hidden="true" />
                                 </div>
-                                <span className="text-sm">github.com/binicode</span>
+                                <div>
+                                    <p className="text-xs text-stone-400 dark:text-gray-500 mb-0.5">GitHub</p>
+                                    <p className="text-sm font-medium text-stone-700 dark:text-gray-300 group-hover:text-amber-700 dark:group-hover:text-cyan-400 transition-colors">github.com/binicode</p>
+                                </div>
                             </a>
 
-
-                            <a href={contactData.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Visit LinkedIn profile"
-                                className="inline-flex items-center gap-3 text-stone-600 dark:text-gray-400 hover:text-stone-900 dark:hover:text-white transition-colors"
-                            >
-                                <div className="w-10 h-10 rounded-full bg-stone-100 dark:bg-gray-800 flex items-center justify-center">
-                                    <span className="text-xs font-bold text-stone-500 dark:text-gray-400">in</span>
+                            <div className="group flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-stone-100 dark:border-gray-700">
+                                <div className="w-10 h-10 rounded-full bg-amber-50 dark:bg-cyan-950 flex items-center justify-center shrink-0">
+                                    <span className="text-xs font-bold text-amber-700 dark:text-cyan-400">in</span>
                                 </div>
-                                <span className="text-sm">LinkedIn — Coming Soon</span>
-                            </a>
+                                <div>
+                                    <p className="text-xs text-stone-400 dark:text-gray-500 mb-0.5">LinkedIn</p>
+                                    <p className="text-sm font-medium text-stone-400 dark:text-gray-500">Coming Soon</p>
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
 
