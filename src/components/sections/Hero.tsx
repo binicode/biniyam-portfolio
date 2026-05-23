@@ -6,22 +6,28 @@ import { portfolioData } from "@/data/portfolio";
 import { fadeUpVariant } from "@/lib/animations";
 
 const codeLines = [
+    { tokens: [{ t: "// Biniyam Abera", c: "#4B5563" }] },
+    { tokens: [{ t: "", c: "" }] },
     { tokens: [{ t: "const", c: "#7C3AED" }, { t: " dev", c: "#38BDF8" }, { t: " = {", c: "#94A3B8" }] },
+    { tokens: [{ t: "  name", c: "#34D399" }, { t: ":", c: "#94A3B8" }, { t: ' "Biniyam"', c: "#FB923C" }, { t: ",", c: "#94A3B8" }] },
     { tokens: [{ t: "  stack", c: "#34D399" }, { t: ":", c: "#94A3B8" }, { t: ' "fullstack"', c: "#FB923C" }, { t: ",", c: "#94A3B8" }] },
     { tokens: [{ t: "  ai", c: "#34D399" }, { t: ":", c: "#94A3B8" }, { t: " true", c: "#A78BFA" }, { t: ",", c: "#94A3B8" }] },
     { tokens: [{ t: "  web3", c: "#34D399" }, { t: ":", c: "#94A3B8" }, { t: " true", c: "#A78BFA" }, { t: ",", c: "#94A3B8" }] },
     { tokens: [{ t: "  location", c: "#34D399" }, { t: ":", c: "#94A3B8" }, { t: ' "Addis"', c: "#FB923C" }, { t: ",", c: "#94A3B8" }] },
+    { tokens: [{ t: "  remote", c: "#34D399" }, { t: ":", c: "#94A3B8" }, { t: " true", c: "#A78BFA" }, { t: ",", c: "#94A3B8" }] },
     { tokens: [{ t: "  open", c: "#34D399" }, { t: ":", c: "#94A3B8" }, { t: " true", c: "#A78BFA" }] },
     { tokens: [{ t: "}", c: "#94A3B8" }] },
+    { tokens: [{ t: "", c: "" }] },
+    { tokens: [{ t: "export default", c: "#7C3AED" }, { t: " dev", c: "#38BDF8" }] },
 ];
 
 export default function Hero() {
     return (
         <section
             aria-label="Hero"
-            className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 pt-20 lg:pt-16 bg-stone-50 dark:bg-gray-950 overflow-hidden"
+            className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 pt-20 md:pt-16 bg-stone-50 dark:bg-gray-950 overflow-hidden"
         >
-            <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
 
                 {/* Left — Content */}
                 <div className="flex flex-col items-start">
@@ -37,10 +43,10 @@ export default function Hero() {
                         <span className="block text-lg md:text-xl lg:text-2xl font-medium text-stone-400 dark:text-gray-500 tracking-wide mb-1">
                             I engineer
                         </span>
-                        <span className="block text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none text-amber-700 dark:text-cyan-400">
+                        <span className="block text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-none text-amber-700 dark:text-cyan-400">
                             digital
                         </span>
-                        <span className="block text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none text-stone-900 dark:text-slate-50">
+                        <span className="block text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-none text-stone-900 dark:text-slate-50">
                             products
                         </span>
                     </motion.h1>
@@ -144,7 +150,7 @@ export default function Hero() {
                         initial="hidden"
                         animate="visible"
                         custom={0.6}
-                        className="lg:hidden mt-8"
+                        className="md:hidden mt-8"
                     >
                         <div className="inline-flex items-center gap-3 bg-gray-950 px-5 py-3 rounded-full border border-gray-800">
                             <span className="text-emerald-400 text-xs font-mono">●</span>
@@ -172,11 +178,11 @@ export default function Hero() {
                     initial="hidden"
                     animate="visible"
                     custom={0.3}
-                    className="hidden lg:flex items-center justify-center"
+                    className="hidden md:flex items-center justify-center h-full"
                 >
                     <div className="relative">
                         <div className="absolute inset-0 rounded-2xl bg-amber-400/20 dark:bg-cyan-400/20 blur-2xl scale-110" />
-                        <div className="relative bg-gray-950 dark:bg-gray-900 rounded-2xl border border-gray-800 p-6 w-80 shadow-2xl">
+                        <div className="relative bg-gray-950 dark:bg-gray-900 rounded-2xl border border-gray-800 p-6 w-80 shadow-2xl md:w-full">
                             <div className="flex items-center gap-2 mb-5">
                                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
                                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
