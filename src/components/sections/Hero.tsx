@@ -32,7 +32,7 @@ export default function Hero() {
                         initial="hidden"
                         animate="visible"
                         custom={0}
-                        className="mb-3"
+                        className="mb-6"
                     >
                         <span className="block text-lg md:text-xl lg:text-2xl font-medium text-stone-400 dark:text-gray-500 tracking-wide mb-1">
                             I engineer
