@@ -19,7 +19,7 @@ export default function Hero() {
     return (
         <section
             aria-label="Hero"
-            className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 pt-16 bg-stone-50 dark:bg-gray-950 overflow-hidden"
+            className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 pt-20 lg:pt-16 bg-stone-50 dark:bg-gray-950 overflow-hidden"
         >
             <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -131,6 +131,33 @@ export default function Hero() {
                             <ExternalLink size={18} aria-hidden="true" />
                             biniyam.com
                         </a>
+                    </motion.div>
+
+                    {/* Compact Terminal — Mobile & iPad only */}
+                    <motion.div
+                        variants={fadeUpVariant}
+                        initial="hidden"
+                        animate="visible"
+                        custom={0.6}
+                        className="lg:hidden mt-8"
+                    >
+                        <div className="inline-flex items-center gap-3 bg-gray-950 px-5 py-3 rounded-full border border-gray-800">
+                            <span className="text-emerald-400 text-xs font-mono">●</span>
+                            <span className="font-mono text-xs">
+                                <span style={{ color: "#7C3AED" }}>const</span>
+                                <span style={{ color: "#38BDF8" }}> dev</span>
+                                <span style={{ color: "#94A3B8" }}> = {"{ "}</span>
+                                <span style={{ color: "#34D399" }}>stack</span>
+                                <span style={{ color: "#94A3B8" }}>: </span>
+                                <span style={{ color: "#FB923C" }}>"fullstack"</span>
+                                <span style={{ color: "#94A3B8" }}>, </span>
+                                <span style={{ color: "#34D399" }}>open</span>
+                                <span style={{ color: "#94A3B8" }}>: </span>
+                                <span style={{ color: "#A78BFA" }}>true</span>
+                                <span style={{ color: "#94A3B8" }}>{" }"}</span>
+                            </span>
+                            <span className="inline-block w-1.5 h-3.5 bg-cyan-400 animate-pulse rounded-sm" />
+                        </div>
                     </motion.div>
                 </div>
 
