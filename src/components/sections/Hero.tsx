@@ -42,7 +42,7 @@ export default function Hero() {
             <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch relative z-10">
 
                 {/* Left — Content */}
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col items-start justify-evenly min-h-[80vh]">
 
                     {/* Main Phrase */}
                     <motion.h1
@@ -50,7 +50,7 @@ export default function Hero() {
                         initial="hidden"
                         animate="visible"
                         custom={0}
-                        className="mb-6"
+                        className="mb-2 lg:mb-6 leading-snug"
                     >
                         <span className="block text-lg md:text-xl lg:text-2xl font-medium text-stone-400 dark:text-gray-500 tracking-wide mb-2">
                             I engineer
@@ -69,7 +69,7 @@ export default function Hero() {
                         initial="hidden"
                         animate="visible"
                         custom={0.1}
-                        className="text-sm font-medium text-stone-400 dark:text-gray-500 tracking-widest uppercase mb-5"
+                        className="text-sm font-medium text-stone-400 dark:text-gray-500 tracking-widest uppercase mb-8 md:mb-0"
                     >
                         Full-stack · AI-ready · Web3
                     </motion.p>
@@ -80,7 +80,7 @@ export default function Hero() {
                         initial="hidden"
                         animate="visible"
                         custom={0.2}
-                        className="text-sm font-medium text-stone-500 dark:text-gray-400 mb-5"
+                        className="text-sm font-medium text-stone-500 dark:text-gray-400 mb-2 md:mb-2 leading-relaxed"
                     >
                         {portfolioData.name} · {portfolioData.title}
                     </motion.p>
@@ -91,7 +91,7 @@ export default function Hero() {
                         initial="hidden"
                         animate="visible"
                         custom={0.3}
-                        className="text-base text-stone-500 dark:text-gray-400 leading-relaxed mb-10 max-w-lg"
+                        className="text-base text-stone-500 dark:text-gray-400 leading-relaxed mb-12 md:mb-10 max-w-lg"
                     >
                         {portfolioData.tagline}
                     </motion.p>
@@ -102,7 +102,7 @@ export default function Hero() {
                         initial="hidden"
                         animate="visible"
                         custom={0.4}
-                        className="flex flex-wrap gap-4 mb-10"
+                        className="flex flex-wrap gap-4 mb-8 md:mb-10"
                     >
                         <button
                             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
