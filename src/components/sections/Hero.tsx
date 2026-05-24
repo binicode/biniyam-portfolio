@@ -27,7 +27,19 @@ export default function Hero() {
             aria-label="Hero"
             className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 pt-20 md:pt-16 bg-stone-50 dark:bg-gray-950 overflow-hidden"
         >
-            <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            {/* Background Image — Light mode only */}
+            <div
+                className="absolute inset-0 z-0 dark:opacity-0 transition-opacity duration-300"
+                style={{
+                    backgroundImage: "url('/images/hero_bg.jpg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    opacity: 0.4,
+                }}
+            />
+            {/* Fade overlay */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-r from-stone-50/90 via-stone-50/70 to-stone-50/30 dark:from-gray-950 dark:via-gray-950/95 dark:to-gray-950/90" />
+            <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch relative z-10">
 
                 {/* Left — Content */}
                 <div className="flex flex-col items-start">
