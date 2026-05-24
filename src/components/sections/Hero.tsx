@@ -52,13 +52,13 @@ export default function Hero() {
                         custom={0}
                         className="mb-6"
                     >
-                        <span className="block text-lg md:text-xl lg:text-2xl font-medium text-stone-400 dark:text-gray-500 tracking-wide mb-1">
+                        <span className="block text-lg md:text-xl lg:text-2xl font-medium text-stone-400 dark:text-gray-500 tracking-wide mb-2">
                             I engineer
                         </span>
-                        <span className="block text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-none text-amber-700 dark:text-cyan-400">
+                        <span className="block text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-none text-amber-700 dark:text-cyan-400 pl-4 md:pl-8">
                             digital
                         </span>
-                        <span className="block text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-none text-stone-900 dark:text-slate-50">
+                        <span className="block text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-none text-stone-900 dark:text-slate-50 pl-8 md:pl-16">
                             products
                         </span>
                     </motion.h1>
