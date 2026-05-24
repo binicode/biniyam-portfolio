@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, ExternalLink, Code2 } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { fadeUpVariant } from "@/lib/animations";
+import Image from "next/image";
 
 const codeLines = [
     { tokens: [{ t: "// Biniyam Abera", c: "#4B5563" }] },
@@ -28,15 +29,18 @@ export default function Hero() {
             className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 pt-20 md:pt-16 bg-stone-50 dark:bg-gray-950 overflow-hidden"
         >
             {/* Background Image — Light mode only */}
-            <div
-                className="absolute inset-0 z-0 dark:opacity-0 transition-opacity duration-300"
-                style={{
-                    backgroundImage: "url('/images/hero_bg.jpg')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    opacity: 0.8,
-                }}
-            />
+            <div className="absolute inset-0 z-0 dark:opacity-0 transition-opacity duration-300">
+                <Image
+                    src="/images/hero_bg.jpg"
+                    alt=""
+                    fill
+                    sizes="100vw"
+                    className="object-cover object-center"
+                    style={{ opacity: 0.8 }}
+                    priority
+                    aria-hidden="true"
+                />
+            </div>
             {/* Fade overlay */}
             <div className="absolute inset-0 z-0 bg-gradient-to-r from-stone-50/70 via-stone-50/40 to-stone-50/10 dark:from-gray-950 dark:via-gray-950/95 dark:to-gray-950/90" />
             <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch relative z-10">
