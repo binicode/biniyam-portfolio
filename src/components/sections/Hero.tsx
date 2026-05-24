@@ -28,18 +28,42 @@ export default function Hero() {
             aria-label="Hero"
             className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 pt-20 md:pt-16 bg-stone-50 dark:bg-gray-950 overflow-hidden"
         >
-            {/* Background Image — Light mode only */}
-            <div className="absolute inset-0 z-0 dark:opacity-0 transition-opacity duration-300">
-                <Image
-                    src="/images/hero_bg.jpg"
-                    alt=""
-                    fill
-                    sizes="100vw"
-                    className="object-cover object-center"
-                    style={{ opacity: 0.8 }}
-                    priority
-                    aria-hidden="true"
-                />
+            {/* SVG Wave Background — Light mode only */}
+            <div className="absolute inset-0 z-0 dark:opacity-0 transition-opacity duration-300" aria-hidden="true">
+                <svg
+                    className="absolute inset-0 w-full h-full"
+                    viewBox="0 0 1200 800"
+                    preserveAspectRatio="xMidYMid slice"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <defs>
+                        <linearGradient id="wave1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#f5f3f0" stopOpacity="1" />
+                            <stop offset="50%" stopColor="#e8e4df" stopOpacity="0.9" />
+                            <stop offset="100%" stopColor="#d4cfc9" stopOpacity="0.8" />
+                        </linearGradient>
+                        <linearGradient id="wave2" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+                            <stop offset="50%" stopColor="#f0ebe5" stopOpacity="0.85" />
+                            <stop offset="100%" stopColor="#e0dbd5" stopOpacity="0.75" />
+                        </linearGradient>
+                        <linearGradient id="wave3" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stopColor="#faf9f7" stopOpacity="1" />
+                            <stop offset="50%" stopColor="#ebe7e2" stopOpacity="0.9" />
+                            <stop offset="100%" stopColor="#d8d3cd" stopOpacity="0.85" />
+                        </linearGradient>
+                        <linearGradient id="wave4" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stopColor="#f8f6f3" stopOpacity="0.95" />
+                            <stop offset="100%" stopColor="#cdc8c2" stopOpacity="0.7" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M0,400 Q300,250 600,350 T1200,300 L1200,800 L0,800 Z" fill="url(#wave1)" opacity="0.7" />
+                    <path d="M0,350 Q400,200 800,300 T1200,250 L1200,800 L0,800 Z" fill="url(#wave2)" opacity="0.8" />
+                    <path d="M0,300 Q350,100 700,250 T1200,200 L1200,800 L0,800 Z" fill="url(#wave3)" opacity="0.6" />
+                    <path d="M0,200 Q300,50 600,150 T1200,100 L1200,0 L0,0 Z" fill="url(#wave4)" opacity="0.75" />
+                    <path d="M0,500 Q250,350 500,450 Q750,550 1000,450 T1200,500 L1200,800 L0,800 Z" fill="url(#wave1)" opacity="0.5" />
+                    <path d="M0,150 Q200,0 400,100 Q600,200 800,100 Q1000,0 1200,150 L1200,0 L0,0 Z" fill="url(#wave2)" opacity="0.65" />
+                </svg>
             </div>
             {/* Fade overlay */}
             <div className="absolute inset-0 z-0 bg-gradient-to-r from-stone-50/70 via-stone-50/40 to-stone-50/10 dark:from-gray-950 dark:via-gray-950/95 dark:to-gray-950/90" />
