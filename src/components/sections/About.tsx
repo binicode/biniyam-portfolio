@@ -6,6 +6,7 @@ import { MapPin, Download, ArrowRight, ChevronDown, ChevronUp } from "lucide-rea
 import { aboutData } from "@/data/portfolio";
 import { fadeUpVariant } from "@/lib/animations";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function About() {
     const [expanded, setExpanded] = useState(false);
@@ -48,10 +49,13 @@ export default function About() {
                         className="flex justify-center lg:justify-start"
                     >
                         <div className="relative w-72 h-80 lg:w-64 lg:h-72 rounded-2xl overflow-hidden">
-                            <img
+                            <Image
                                 src="/images/profile-picture.webp"
                                 alt="Biniyam Abera"
-                                className="w-full h-full object-cover object-top"
+                                fill
+                                sizes="(max-width: 768px) 288px, 256px"
+                                className="object-cover object-top"
+                                priority
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent" />
                             <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
