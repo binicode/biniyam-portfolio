@@ -34,11 +34,11 @@ export default function Hero() {
                     backgroundImage: "url('/images/hero_bg.jpg')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                    opacity: 0.4,
+                    opacity: 0.8,
                 }}
             />
             {/* Fade overlay */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-r from-stone-50/90 via-stone-50/70 to-stone-50/30 dark:from-gray-950 dark:via-gray-950/95 dark:to-gray-950/90" />
+            <div className="absolute inset-0 z-0 bg-gradient-to-r from-stone-50/70 via-stone-50/40 to-stone-50/10 dark:from-gray-950 dark:via-gray-950/95 dark:to-gray-950/90" />
             <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch relative z-10">
 
                 {/* Left — Content */}
