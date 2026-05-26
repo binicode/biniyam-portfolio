@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   title: "Biniyam Abera | Full-Stack Developer",
   description:
     "Full-Stack Developer specializing in Next.js, Node.js & Web3 — building production-grade web products from Addis Ababa, for the world.",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   keywords: [
     "Full-Stack Developer",
     "Next.js",

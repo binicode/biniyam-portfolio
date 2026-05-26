@@ -86,7 +86,7 @@ export default function Hero() {
                         <span className="block text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-none text-amber-700 dark:text-cyan-400 pl-4 md:pl-8">
                             digital
                         </span>
-                        <span className="block text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-none text-stone-900 dark:text-slate-50 pl-8 md:pl-16">
+                        <span className="block text-5xl md:text-7xl font-bold tracking-tight leading-none text-stone-900 dark:text-slate-50 pl-8 md:pl-16">
                             products
                         </span>
                     </motion.h1>
