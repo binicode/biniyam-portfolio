@@ -35,15 +35,22 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://biniyam.com",
     title: "Biniyam Abera | Full-Stack Developer",
-    description:
-      "Full-Stack Developer specializing in Next.js, Node.js & Web3 — building production-grade web products from Addis Ababa, for the world.",
+    description: "Full-Stack Developer specializing in Next.js, Node.js & Web3 — building production-grade web products from Addis Ababa, for the world.",
     siteName: "Biniyam Abera",
+    images: [
+      {
+        url: "https://biniyam.com/images/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Biniyam Abera | Full-Stack Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Biniyam Abera | Full-Stack Developer",
-    description:
-      "Full-Stack Developer specializing in Next.js, Node.js & Web3 — building production-grade web products from Addis Ababa, for the world.",
+    description: "Full-Stack Developer specializing in Next.js, Node.js & Web3 — building production-grade web products from Addis Ababa, for the world.",
+    images: ["https://biniyam.com/images/og-image.webp"],
   },
 };
 
