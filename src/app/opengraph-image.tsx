@@ -6,13 +6,6 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-    const baseUrl = "https://biniyam.com";
-    const imageData = await fetch(`${baseUrl}/images/profile-picture.webp`).then(
-        (res) => res.arrayBuffer()
-    );
-    const base64 = Buffer.from(imageData).toString("base64");
-    const imageSrc = `data:image/webp;base64,${base64}`;
-
     return new ImageResponse(
         (
             <div
@@ -176,13 +169,11 @@ export default async function Image() {
                         justifyContent: "center",
                     }}
                 >
-                    {/* Glow behind photo */}
                     <div
                         style={{
                             position: "absolute",
                             bottom: "0",
                             left: "50%",
-                            transform: "translateX(-50%)",
                             width: "300px",
                             height: "300px",
                             borderRadius: "50%",
@@ -190,7 +181,7 @@ export default async function Image() {
                         }}
                     />
                     <img
-                        src={imageSrc}
+                        src="https://biniyam.com/images/profile-picture.webp"
                         width={320}
                         height={420}
                         style={{
