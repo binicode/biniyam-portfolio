@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Biniyam Abera",
     images: [
       {
-        url: "https://biniyam.com/opengraph-image",
+        url: "https://biniyam.com/images/og-image.webp",
         width: 1200,
         height: 630,
         alt: "Biniyam Abera | Full-Stack Developer",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Biniyam Abera | Full-Stack Developer",
     description: "Full-Stack Developer specializing in Next.js, Node.js & Web3 — building production-grade web products from Addis Ababa, for the world.",
-    images: ["https://biniyam.com/opengraph-image"],
+    images: ["https://biniyam.com/images/og-image.webp"],
   },
 };
 
