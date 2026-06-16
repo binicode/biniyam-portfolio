@@ -105,7 +105,9 @@ export default function Navbar() {
 
     const scrollTo = useCallback((id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        window.location.hash = id; // ✅ ensures only one fragment
     }, []);
+
 
     return (
         <header
